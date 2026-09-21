@@ -1,0 +1,5 @@
+device_id,owner,department,criticality,os,management_state
+WS-117,riley.mokoena@example.invalid,Finance,high,Windows 11,managed
+WS-044,thabo.khumalo@example.invalid,Finance,high,Windows 11,managed
+WS-203,morgan.patel@example.invalid,Operations,medium,Windows 11,managed
+AAD-SIGNIN,casey.naidoo@example.invalid,Identity,high,Cloud,managed

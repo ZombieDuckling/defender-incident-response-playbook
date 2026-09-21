@@ -1,0 +1,97 @@
+{
+  "alerts": [
+    {
+      "alert_id": "ALRT-1001",
+      "title": "Suspicious PowerShell download activity",
+      "severity": "high",
+      "status": "new",
+      "created_utc": "2026-09-18T08:14:11Z",
+      "user": "riley.mokoena@example.invalid",
+      "device": "WS-117",
+      "category": "execution",
+      "signals": [
+        "encoded command",
+        "external download",
+        "new process from office child process"
+      ],
+      "recommended_actions": [
+        "collect process tree",
+        "isolate device pending review",
+        "reset user sessions"
+      ],
+      "evidence": [
+        "powershell command line captured",
+        "file hash available",
+        "parent process winword.exe"
+      ]
+    },
+    {
+      "alert_id": "ALRT-1002",
+      "title": "Impossible travel sign-in pattern",
+      "severity": "medium",
+      "status": "new",
+      "created_utc": "2026-09-18T09:41:02Z",
+      "user": "casey.naidoo@example.invalid",
+      "device": "AAD-SIGNIN",
+      "category": "identity",
+      "signals": [
+        "two countries within short window",
+        "unfamiliar ASN"
+      ],
+      "recommended_actions": [
+        "confirm user travel",
+        "review MFA detail",
+        "revoke sessions if unconfirmed"
+      ],
+      "evidence": [
+        "sign-in risk event",
+        "conditional access result"
+      ]
+    },
+    {
+      "alert_id": "ALRT-1003",
+      "title": "Unusual archive staging on finance workstation",
+      "severity": "medium",
+      "status": "in_progress",
+      "created_utc": "2026-09-18T10:22:33Z",
+      "user": "thabo.khumalo@example.invalid",
+      "device": "WS-044",
+      "category": "collection",
+      "signals": [
+        "large zip created",
+        "sensitive path touched"
+      ],
+      "recommended_actions": [
+        "review file list",
+        "confirm business process",
+        "monitor outbound transfer"
+      ],
+      "evidence": [
+        "archive path",
+        "process owner",
+        "directory listing"
+      ]
+    },
+    {
+      "alert_id": "ALRT-1004",
+      "title": "Browser credential store access",
+      "severity": "low",
+      "status": "new",
+      "created_utc": "2026-09-18T11:03:45Z",
+      "user": "morgan.patel@example.invalid",
+      "device": "WS-203",
+      "category": "credential_access",
+      "signals": [
+        "credential store file read"
+      ],
+      "recommended_actions": [
+        "check parent process",
+        "confirm browser update activity"
+      ],
+      "evidence": [
+        "file access event",
+        "process hash"
+      ]
+    }
+  ]
+}

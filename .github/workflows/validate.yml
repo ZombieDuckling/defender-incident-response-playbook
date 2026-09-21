@@ -1,0 +1,20 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build sample report
+        run: python3 tools/build_sample_report.py --alerts data/synthetic-defender-alerts.json --devices data/synthetic-device-inventory.csv --output sample-output/incident-triage-report.md
+      - name: Validate project
+        run: python3 tests/validate_project.py
+      - name: Run unit tests
+        run: python3 -m unittest discover -s tests
