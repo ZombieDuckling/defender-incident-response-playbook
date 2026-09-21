@@ -18,6 +18,13 @@ class ReportBuilderTests(unittest.TestCase):
         first_heading = next(line for line in report.splitlines() if line.startswith("### "))
         self.assertIn("ALRT-1001", first_heading)
 
+    def test_report_includes_evidence_for_each_alert(self):
+        report = build_report(ROOT / "data/synthetic-defender-alerts.json", ROOT / "data/synthetic-device-inventory.csv")
+        alerts = json.loads((ROOT / "data/synthetic-defender-alerts.json").read_text(encoding="utf-8"))["alerts"]
+        evidence_lines = [line for line in report.splitlines() if line.startswith("- Evidence captured:")]
+        self.assertEqual(len(alerts), len(evidence_lines))
+        self.assertIn("Evidence captured: powershell command line captured, file hash available, parent process winword.exe", report)
+
     def test_all_alerts_use_synthetic_domain(self):
         alerts = json.loads((ROOT / "data/synthetic-defender-alerts.json").read_text(encoding="utf-8"))["alerts"]
         self.assertTrue(all(alert["user"].endswith("@example.invalid") for alert in alerts))
