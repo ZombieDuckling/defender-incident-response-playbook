@@ -17,6 +17,7 @@ Source: synthetic Microsoft Defender alert export
 - Device: WS-117 (high criticality)
 - Category: execution
 - Signals: encoded command, external download, new process from office child process
+- Evidence captured: powershell command line captured, file hash available, parent process winword.exe
 - Recommended actions: collect process tree, isolate device pending review, reset user sessions
 
 ### ALRT-1002: Impossible travel sign-in pattern
@@ -27,6 +28,7 @@ Source: synthetic Microsoft Defender alert export
 - Device: AAD-SIGNIN (high criticality)
 - Category: identity
 - Signals: two countries within short window, unfamiliar ASN
+- Evidence captured: sign-in risk event, conditional access result
 - Recommended actions: confirm user travel, review MFA detail, revoke sessions if unconfirmed
 
 ### ALRT-1003: Unusual archive staging on finance workstation
@@ -37,6 +39,7 @@ Source: synthetic Microsoft Defender alert export
 - Device: WS-044 (high criticality)
 - Category: collection
 - Signals: large zip created, sensitive path touched
+- Evidence captured: archive path, process owner, directory listing
 - Recommended actions: review file list, confirm business process, monitor outbound transfer
 
 ### ALRT-1004: Browser credential store access
@@ -47,5 +50,6 @@ Source: synthetic Microsoft Defender alert export
 - Device: WS-203 (medium criticality)
 - Category: credential_access
 - Signals: credential store file read
+- Evidence captured: file access event, process hash
 - Recommended actions: check parent process, confirm browser update activity
 

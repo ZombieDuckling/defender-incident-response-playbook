@@ -44,6 +44,7 @@ def build_report(alerts_path: Path, devices_path: Path) -> str:
             f"- Device: {alert['device']} ({criticality} criticality)",
             f"- Category: {alert['category']}",
             f"- Signals: {', '.join(alert['signals'])}",
+            f"- Evidence captured: {', '.join(alert['evidence'])}",
             f"- Recommended actions: {', '.join(alert['recommended_actions'])}",
             "",
         ])
